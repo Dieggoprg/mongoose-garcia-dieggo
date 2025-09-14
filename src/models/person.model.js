@@ -17,7 +17,13 @@ const personSchema = new Schema(
         },
         address:{
             type: Types.ObjectId, 
-            ref: "Address"
+            ref: "Address" //relación 1:1
+        },
+        rol:{
+            type: String,
+            enum: ["Student", "Teacher"],
+            default: "Student",
+            required: true
         }
     }
 );
