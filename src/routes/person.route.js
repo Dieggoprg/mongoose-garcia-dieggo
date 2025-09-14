@@ -7,5 +7,5 @@ export const routerPerson = Router();
 routerPerson.get("/getAllPerson", getAllPersons)
 routerPerson.post("/postPerson", createPerson)
 routerPerson.put("/updatePerson", updatePerson)
-routerPerson.get("/getByIdPerson", getByIdPerson)
+routerPerson.get("/getByIdPerson/:id", getByIdPerson)
 routerPerson.delete("/deltePerson", deletePerson)

@@ -2,7 +2,7 @@ import express from "express"
 import cors from "cors"
 import "dotenv/config"
 import { connectDB } from "./src/config/database.js"
-import { routes } from "./src/routes/indexRouter.js"
+import { routes } from "./src/routes/indexRoutes.js"
 
 const PORT = process.env.PORT
 const app = express()
