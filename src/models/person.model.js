@@ -15,10 +15,9 @@ const personSchema = new Schema(
             type: Number,
             required: true
         },
-        role: {
-            type: String,
-            enum: ["Student", "Teacher"],
-            default: "Student"
+        address:{
+            type: Types.ObjectId, 
+            ref: "Address"
         }
     }
 );
