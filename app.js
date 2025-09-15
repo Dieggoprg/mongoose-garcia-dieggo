@@ -1,15 +1,19 @@
+//importaciones
 import express from "express"
 import cors from "cors"
 import "dotenv/config"
 import { connectDB } from "./src/config/database.js"
 import { routes } from "./src/routes/indexRoutes.js"
 
+//asignaciones
 const PORT = process.env.PORT
 const app = express()
 
+//middlewares para la configuración del servidor
 app.use(express.json())
 app.use(cors({
-    // origin: 
+    origin: "*",
+    methods: ["GET", "POST", "PUT", "DELETE"]
 }))
 
 //middleware de rutas

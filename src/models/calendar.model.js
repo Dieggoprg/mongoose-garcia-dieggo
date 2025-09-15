@@ -1,32 +1,21 @@
 //modelo calendario
-import {Schema, Types, model} from "mongoose";
+import { Schema, Types, model } from "mongoose";
 
 const calendarSchema = new Schema(
-    {
-        day:{
-            type: String,
-            enum:["Monday",
-            "Tuesday",
-            "Wednesday",
-            "Thursday",
-            "Friday"
-            ],
-            required: true
-        },
-        startTime:{
-            type: String,
-            required: true
-        },
-        endTime:{
-            type: String,
-            required: true
-        },
-        classroom:{
-            type: Types.ObjectId,
-            ref: "Classroom",
-            required: true
-        }
-    }
+  {
+    date: {
+      type: Date,
+      required: true,
+    },
+    description: {
+      type: String,
+      required: true
+    },
+  },
+  {
+    versionKey: false,
+    timestamps: true,
+  }
 );
 
-export const CalendarModel = model("Calendar", calendarSchema)
+export const CalendarModel = model("Calendar", calendarSchema);

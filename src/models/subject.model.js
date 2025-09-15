@@ -7,7 +7,14 @@ const subjectSchema = new Schema(
             type:String,
             required: true
         },
-        teacher:{
+        // Relación N:M con Person (estudiantes)
+        students:{
+            type: Types.ObjectId,
+            ref: "Person",
+            required:true
+        },
+        // Relación 1:1 - Una materia tiene un profesor
+        teachers:{
             type: String,
             required:true
         },
@@ -18,8 +25,11 @@ const subjectSchema = new Schema(
         classroom:{
             type: Types.ObjectId,
             ref: "Classroom",
-            required: true
+            default: "Aula a asignar"
         }
+    },{
+        versionKey:false,
+        timestamps:true
     }
 );
 
