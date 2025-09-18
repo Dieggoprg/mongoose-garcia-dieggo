@@ -4,7 +4,7 @@ import { AddressModel } from "../models/address.model.js";
 
 //función para crear una Persona
 export const createPerson = async (req, res) => {
-  const { firstName, lastName, age, address } = req.body;
+  const { firstName, lastName, age, address, rol } = req.body;
 
   //crea la dirección y la persona en un mismo endpoint
   try {
@@ -17,6 +17,7 @@ export const createPerson = async (req, res) => {
       lastName,
       age,
       address: newAddress._id,
+      rol
     });
 
     if (!newPerson) {
@@ -96,12 +97,12 @@ export const getAllPersons = async (req, res) => {
 //función para actualizar una persona
 export const updatePerson = async (req, res) => {
   const { id } = req.params;
-  const { name, lastName, age, address, rol } = req.body;
+  const { firstName, lastName, age, address, rol } = req.body;
 
   try {
     const updatedPerson = await PersonModel.findByIdAndUpdate(
       id,
-      { name, lastName, age, address, rol },
+      { firstName, lastName, age, address, rol },
       { new: true }
     );
 

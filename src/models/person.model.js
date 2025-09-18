@@ -21,6 +21,12 @@ const personSchema = new Schema(
         type: Types.ObjectId,
         ref: "Address",
       },
+      {
+        rol: {
+          type: String,
+          enum: ["Teacher", "Student"]
+        }
+      }
     ],
     subjects: [{ type: Types.ObjectId, ref: "Subject" }],
     classroom: { type: Types.ObjectId, ref: "Classroom" },
